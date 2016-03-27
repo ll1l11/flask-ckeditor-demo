@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A Simple Page with CKEditor</title>
+        <!-- 请确保CKEditor文件路径正确 -->
+        <script src="{{ url_for('static', filename='ckeditor/ckeditor.js') }}"></script>
+    </head>
+    <body>
+        <form>
+            <textarea name="editor1" id="editor1" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+        </form>
+        <script>
+            // 用CKEditor替换<textarea id="editor1">
+            // 使用默认配置
+            // CKEDITOR.replace('editor1');
+            CKEDITOR.replace( 'editor1', {
+                language: 'zh-cn',
+                filebrowserBrowseUrl: '/static/filemanager/index.html',
+                filebrowserUploadUrl: '/upload'
+            });
+        </script>
+    </body>
+</html>
